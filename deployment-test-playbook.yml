@@ -10,8 +10,5 @@
         pkg: docker.io
         state: present
 
-    - name: start docker service
-      command: sudo systemctl start docker
-
     - name: run insure me in test server
       command: "docker run -itd -p 9090:8081 arungenie/insureme:1.0"

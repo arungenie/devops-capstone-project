@@ -6,9 +6,10 @@
       command: sudo apt update
 
     - name: install docker in test server
-      apt:
-        pkg: docker.io
-        state: present
+      command: sudo apt install -y docker.io
+
+    - name: run docker service
+      command: sudo systemctl start docker
 
     - name: run insure me in test server
       command: "docker run -itd -p 9090:8081 arungenie/insureme:1.0"

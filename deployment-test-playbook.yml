@@ -8,6 +8,10 @@
     - name: install docker in test server
       command: sudo apt install -y docker.io
 
+    - name: Pause for 5 minutes to build app cache
+      ansible.builtin.pause:
+        minutes: 2
+
     - name: run docker service
       command: sudo systemctl start docker
 

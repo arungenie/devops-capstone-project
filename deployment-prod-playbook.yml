@@ -5,11 +5,15 @@
     - name: update the server apt
       command: sudo apt update
 
-    - name: install docker in test server
+    - name: install docker in prod server
       command: sudo apt install -y docker.io
+
+    - name: Pause for 2 minutes to build app cache
+      ansible.builtin.pause:
+        minutes: 2
 
     - name: run docker service
       command: sudo systemctl start docker
 
-    - name: run insure me in test server
+    - name: run insure me in prod server
       command: "docker run -itd -p 9090:8081 arungenie/insureme:1.0"
